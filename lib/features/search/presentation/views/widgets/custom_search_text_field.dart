@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class CustomSearchTextField extends StatelessWidget {
@@ -17,13 +18,13 @@ class CustomSearchTextField extends StatelessWidget {
           onPressed: () {},
         ),
         enabledBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(12.0),
+          borderRadius: BorderRadius.circular(12.r),
           borderSide: const BorderSide(
             color: Colors.white,
           ),
         ),
         focusedBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(12.0),
+          borderRadius: BorderRadius.circular(12.r),
           borderSide: const BorderSide(
             color: Colors.white,
           ),

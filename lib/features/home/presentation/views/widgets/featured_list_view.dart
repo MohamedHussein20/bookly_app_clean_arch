@@ -1,5 +1,6 @@
 import 'package:bookly_app/features/home/presentation/views/widgets/featured_item.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class FeaturedBookListView extends StatelessWidget {
   const FeaturedBookListView({super.key});
@@ -11,9 +12,9 @@ class FeaturedBookListView extends StatelessWidget {
       child: ListView.builder(
         scrollDirection: Axis.horizontal,
         itemBuilder: (context, index) {
-          return const Padding(
-            padding: EdgeInsets.only(left: 4, right: 16),
-            child: FeaturedItem(),
+          return Padding(
+            padding: EdgeInsets.only(left: 4.w, right: 16.w),
+            child: const FeaturedItem(),
           );
         },
         itemCount: 10,

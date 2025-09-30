@@ -1,6 +1,7 @@
 import 'package:bookly_app/core/utils/assets.dart';
 import 'package:bookly_app/features/splash/presentation/views/widgets/sliding_text.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:go_router/go_router.dart';
 
@@ -37,10 +38,10 @@ class _SplashViewBodyState extends State<SplashViewBody>
       children: [
         SvgPicture.asset(
           AssetsData.booklyLogo,
-          width: 250,
+          width: 250.w,
         ),
-        const SizedBox(
-          height: 40,
+        SizedBox(
+          height: 40.h,
         ),
         SlidingText(slidingAnimation: slidingAnimation),
       ],

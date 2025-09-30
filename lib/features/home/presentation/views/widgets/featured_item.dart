@@ -1,5 +1,6 @@
 import 'package:bookly_app/core/utils/assets.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class FeaturedItem extends StatelessWidget {
   const FeaturedItem({super.key});
@@ -11,7 +12,7 @@ class FeaturedItem extends StatelessWidget {
         aspectRatio: 2.6 / 4,
         child: Container(
           decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(16),
+            borderRadius: BorderRadius.circular(16.r),
             image: const DecorationImage(
               image: AssetImage(AssetsData.testImage),
               fit: BoxFit.fill,

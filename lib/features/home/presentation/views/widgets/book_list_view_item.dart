@@ -4,6 +4,7 @@ import 'package:bookly_app/core/utils/assets.dart';
 import 'package:bookly_app/core/utils/styles.dart';
 import 'package:bookly_app/features/home/presentation/views/widgets/book_rating.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 
 class BookListViewItem extends StatelessWidget {
@@ -12,20 +13,20 @@ class BookListViewItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 10.0),
+      padding: EdgeInsets.symmetric(vertical: 10.0.h),
       child: GestureDetector(
         onTap: () {
           GoRouter.of(context).push(AppRouter.kBookDetailsView);
         },
         child: SizedBox(
-          height: 125,
+          height: 125.h,
           child: Row(
             children: [
               AspectRatio(
                 aspectRatio: 5 / 8,
                 child: Container(
                   decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(8),
+                    borderRadius: BorderRadius.circular(8.r),
                     image: const DecorationImage(
                       image: AssetImage(AssetsData.testImage),
                       fit: BoxFit.fill,
@@ -33,8 +34,8 @@ class BookListViewItem extends StatelessWidget {
                   ),
                 ),
               ),
-              const SizedBox(
-                width: 30,
+              SizedBox(
+                width: 30.w,
               ),
               Expanded(
                 child: Column(
@@ -51,15 +52,15 @@ class BookListViewItem extends StatelessWidget {
                         overflow: TextOverflow.ellipsis,
                       ),
                     ),
-                    const SizedBox(
-                      height: 3,
+                    SizedBox(
+                      height: 3.h,
                     ),
-                    const Text(
+                    Text(
                       'J.K. Rowling',
                       style: Styles.textStyle14,
                     ),
-                    const SizedBox(
-                      height: 3,
+                    SizedBox(
+                      height: 3.h,
                     ),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
