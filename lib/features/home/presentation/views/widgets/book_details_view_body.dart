@@ -16,17 +16,17 @@ class BookDetailsViewBody extends StatelessWidget {
           SliverFillRemaining(
             child: Column(
               children: [
-                BookDetailsSection(),
+                const BookDetailsSection(),
                 SizedBox(
                   height: 40.h,
                 ),
-                BookActions(),
+                const BookActions(),
                 Expanded(
                   child: SizedBox(
-                    height: 50.h,
+                    height: 60.h,
                   ),
                 ),
-                SimilarBookSection(),
+                const SimilarBookSection(),
                 SizedBox(height: 40.h),
               ],
             ),
