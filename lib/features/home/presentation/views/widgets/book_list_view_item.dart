@@ -1,6 +1,7 @@
 import 'package:bookly_app/constants.dart';
 import 'package:bookly_app/core/utils/app_router.dart';
 import 'package:bookly_app/core/utils/styles.dart';
+import 'package:bookly_app/features/home/domain/entities/book_entity.dart';
 import 'package:bookly_app/features/home/presentation/views/widgets/book_rating.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
@@ -28,7 +29,14 @@ class BookListViewItem extends StatelessWidget {
       padding: EdgeInsets.symmetric(vertical: 10.0.h),
       child: GestureDetector(
         onTap: () {
-          GoRouter.of(context).push(AppRouter.kBookDetailsView);
+          GoRouter.of(context).push(AppRouter.kBookDetailsView,
+              extra: BookEntity(
+                  bookId: "0",
+                  image: image,
+                  title: title,
+                  authorName: author,
+                  ratingCount: ratingCount,
+                  rating: rating));
         },
         child: SizedBox(
           height: 125.h,

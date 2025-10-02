@@ -1,4 +1,5 @@
 import 'package:bookly_app/core/utils/styles.dart';
+import 'package:bookly_app/features/home/domain/entities/book_entity.dart';
 import 'package:bookly_app/features/home/presentation/views/widgets/book_rating.dart';
 import 'package:bookly_app/features/home/presentation/views/widgets/custom_book_details_app_bar.dart';
 import 'package:bookly_app/features/home/presentation/views/widgets/featured_item.dart';
@@ -6,7 +7,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class BookDetailsSection extends StatelessWidget {
-  const BookDetailsSection({super.key});
+  const BookDetailsSection({super.key, required this.book});
+  final BookEntity book;
 
   @override
   Widget build(BuildContext context) {
@@ -16,20 +18,30 @@ class BookDetailsSection extends StatelessWidget {
         const CustomBookDetailsAppBar(),
         Padding(
           padding: EdgeInsets.symmetric(horizontal: width * 0.17),
-          child: const FeaturedItem(image: '',),
+          child: FeaturedItem(
+            image: book.image ?? '',
+          ),
         ),
         SizedBox(
           height: 43.h,
         ),
-        Text("The Jungle Book", style: Styles.textStyle30),
+        Text(
+          book.title,
+          style: Styles.textStyle20.copyWith(
+            fontSize: 22.sp,
+            fontWeight: FontWeight.w600,
+          ),
+          maxLines: 2,
+        ),
         SizedBox(
           height: 6.h,
         ),
         Opacity(
           opacity: 0.7,
           child: Text(
-            "Rudyard Kipling",
+            book.authorName ?? 'Unknown author',
             style: Styles.textStyle18.copyWith(
+              fontSize: 16.sp,
               fontStyle: FontStyle.italic,
               fontWeight: FontWeight.w500,
             ),
@@ -38,7 +50,11 @@ class BookDetailsSection extends StatelessWidget {
         SizedBox(
           height: 18.h,
         ),
-        const BookRating(mainAxisAlignment: MainAxisAlignment.center, rating: 0, ratingCount: 0,),
+        BookRating(
+          mainAxisAlignment: MainAxisAlignment.center,
+          rating: book.rating ?? 0,
+          ratingCount: book.ratingCount ?? 0,
+        ),
       ],
     );
   }
