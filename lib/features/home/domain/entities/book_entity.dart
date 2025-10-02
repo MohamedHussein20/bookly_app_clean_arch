@@ -1,5 +1,6 @@
 import 'package:hive/hive.dart';
 part 'book_entity.g.dart';
+
 @HiveType(typeId: 0)
 class BookEntity {
   @HiveField(0)
@@ -11,7 +12,7 @@ class BookEntity {
   @HiveField(3)
   final String? authorName;
   @HiveField(4)
-  final num? price;
+  final num? ratingCount;
   @HiveField(5)
   final num? rating;
 
@@ -20,7 +21,7 @@ class BookEntity {
     required this.image,
     required this.title,
     required this.authorName,
-    required this.price,
+    required this.ratingCount,
     required this.rating,
   });
 }
