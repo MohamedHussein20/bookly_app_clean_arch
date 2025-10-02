@@ -1,7 +1,7 @@
 import 'package:bookly_app/core/utils/styles.dart';
+import 'package:bookly_app/features/home/presentation/views/widgets/featured_books_list_view_bloc_builder.dart';
 import 'package:bookly_app/features/home/presentation/views/widgets/newest_books_list_view.dart';
 import 'package:bookly_app/features/home/presentation/views/widgets/custom_app_bar.dart';
-import 'package:bookly_app/features/home/presentation/views/widgets/featured_list_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -15,7 +15,7 @@ class HomeViewBody extends StatelessWidget {
       child: CustomScrollView(
         slivers: [
           const SliverToBoxAdapter(child: CustomAppBar()),
-          const SliverToBoxAdapter(child: FeaturedBookListView()),
+          const SliverToBoxAdapter(child: FeaturedBooksListViewBlocBuilder()),
           SliverToBoxAdapter(
             child: SizedBox(
               height: 50.h,
@@ -38,3 +38,4 @@ class HomeViewBody extends StatelessWidget {
     );
   }
 }
+

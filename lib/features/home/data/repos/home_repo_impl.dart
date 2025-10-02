@@ -9,33 +9,43 @@ class HomeRepoImpl extends HomeRepo {
   final HomeRemoteDataSource remoteDataSource;
   final HomeLocalDataSource localDataSource;
 
-  HomeRepoImpl({required this.remoteDataSource, required this.localDataSource});
+  HomeRepoImpl({
+    required this.remoteDataSource,
+    required this.localDataSource,
+  });
 
   @override
   Future<Either<Failure, List<BookEntity>>> fetchFeaturedBooks() async {
     try {
-      var booksList = localDataSource.fetchFeaturedBooks();
-      if (booksList.isNotEmpty) {
-        return right(booksList);
+      final localBooks = localDataSource.fetchFeaturedBooks();
+
+      if (localBooks.isNotEmpty) {
+        return right(localBooks);
       }
-      var books = await remoteDataSource.fetchFeaturedBooks();
-      return right(books);
-    } on Exception catch (e) {
-      return Left(ServerFailure(e.toString()));
+
+      print("Repo: fetching featured books from remote 🌍");
+      final remoteBooks = await remoteDataSource.fetchFeaturedBooks();
+      return right(remoteBooks);
+    } catch (e) {
+      
+      return left(ServerFailure(e.toString()));
     }
   }
 
   @override
-  Future<Either<Failure, List<BookEntity>>> fetchNewestBooks() async{
+  Future<Either<Failure, List<BookEntity>>> fetchNewestBooks() async {
     try {
-      var booksList = localDataSource.fetchNewestBooks();
-      if (booksList.isNotEmpty) {
-        return right(booksList);
+      final localBooks = localDataSource.fetchNewestBooks();
+
+      if (localBooks.isNotEmpty) {
+        return right(localBooks);
       }
-      var books = await remoteDataSource.fetchNewestBooks();
-      return right(books);
-    } on Exception catch (e) {
-      return Left(ServerFailure(e.toString()));
+
+      print("Repo: fetching newest books from remote 🌍");
+      final remoteBooks = await remoteDataSource.fetchNewestBooks();
+      return right(remoteBooks);
+    } catch (e) {
+      return left(ServerFailure(e.toString()));
     }
   }
 }
