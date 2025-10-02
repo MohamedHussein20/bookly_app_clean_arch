@@ -29,14 +29,16 @@ class BookListViewItem extends StatelessWidget {
       padding: EdgeInsets.symmetric(vertical: 10.0.h),
       child: GestureDetector(
         onTap: () {
-          GoRouter.of(context).push(AppRouter.kBookDetailsView,
-              extra: BookEntity(
-                  bookId: "0",
-                  image: image,
-                  title: title,
-                  authorName: author,
-                  ratingCount: ratingCount,
-                  rating: rating));
+          GoRouter.of(context).push(
+            AppRouter.kBookDetailsView,
+            extra: BookEntity(
+                bookId: "0",
+                image: image,
+                title: title,
+                authorName: author,
+                ratingCount: ratingCount,
+                rating: rating),
+          );
         },
         child: SizedBox(
           height: 125.h,
