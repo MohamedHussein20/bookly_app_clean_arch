@@ -22,10 +22,10 @@ class HomeRemoteDataSourceImpl extends HomeRemoteDataSource {
   }
 
   @override
-  Future<List<BookEntity>> fetchNewestBooks() async {
+  Future<List<BookEntity>> fetchNewestBooks({int pageNumber = 0}) async {
     final data = await apiService.get(
       endPoint:
-          "volumes?Filtering=free-ebooks&q=computer science&Sorting=newest",
+          "volumes?Filtering=free-ebooks&q=computer science&Sorting=newest&startIndex=${pageNumber * 10}",
     );
 
     final books = getBooksList(data);
